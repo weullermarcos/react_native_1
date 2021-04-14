@@ -1,33 +1,32 @@
 import React from 'react';
-import { SafeAreaView, View, Text, StyleSheet } from 'react-native';
+//import { SafeAreaView, View, Text, StyleSheet } from 'react-native';
+import styled from 'styled-components/native';
+
+
+const Page = styled.SafeAreaView `
+  flex:1;
+  background-color:blue;
+`;
+
+const Texto = styled.Text `
+
+  color:${props=>props.cor};
+  font-size: 30px;
+  background-color:green;
+`;
 
 export default () =>{
 
   return(
 
       //O SafeAreaView usa somente a área segura da tela, recomendado para o caso do iphone
-      <SafeAreaView style = {styles.page}>
-        <Text style = {styles.texto}>Texto 1</Text>
-        <Text style = {styles.texto}>Texto 2</Text>
-        <Text style = {[styles.texto, {fontSize: 17}]}>Texto 3</Text>
-      </SafeAreaView>
+      <Page>
+        <Text>Texto 1</Text>
+        <Text>Texto 2</Text>
+        <Texto cor="red">Texto 3</Texto>
+        <Texto cor="yellow">Texto 4</Texto>
+      </Page>
   );
 }
 
-const styles = StyleSheet.create({
-
-  page:{
-    width: 300,
-    height: 300,
-    backgroundColor: '#CC1111',
-  },
-
-  texto:{
-
-    color: '#FFFFFF',
-    fontSize: 25,
-
-  },
-
-});
 
