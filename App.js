@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { SafeAreaView, View, Text, StyleSheet } from 'react-native';
 import styled from 'styled-components/native';
 
@@ -13,6 +13,8 @@ import styled from 'styled-components/native';
 
 const Page = styled.SafeAreaView `
   flex:1;
+  justify-content: center;
+  align-items: center;
 `;
 
 const Header = styled.View `
@@ -36,6 +38,16 @@ const Texto = styled.Text `
   background-color:green;
 `;
 
+const Hello = (props) =>{ 
+
+  //criando uma const
+  const [name, setName ] = useState('Weuller');
+
+  return(
+
+    <Text> Nome: {name} </Text>
+  );
+}
 
 //flex:${props=>props.flex};
 const Quadrado = styled.View `
@@ -62,9 +74,7 @@ export default () =>{
         <Quadrado flex={1} cor="green"></Quadrado>
 
         <Quadrado style={{alignSelf:'flex-end'}} cor="green"></Quadrado>
-      */
 
-      <Page>
         <Header> 
           <Quadrado cor="red"></Quadrado>
           <Quadrado cor="blue"></Quadrado>
@@ -79,6 +89,13 @@ export default () =>{
           <Quadrado cor="green"></Quadrado>
           <Quadrado cor="pink"></Quadrado>
         </Header>
+
+      */
+
+      <Page>
+        
+        <Hello/>
+        <Hello frase="Seja bem-vindo 2"/>
       </Page>
   );
 }
