@@ -1,11 +1,11 @@
 import React from 'react';
-//import { SafeAreaView, View, Text, StyleSheet } from 'react-native';
+import { SafeAreaView, View, Text, StyleSheet } from 'react-native';
 import styled from 'styled-components/native';
 
 
 const Page = styled.SafeAreaView `
   flex:1;
-  background-color:blue;
+  flex-direction:row;
 `;
 
 const Texto = styled.Text `
@@ -15,16 +15,26 @@ const Texto = styled.Text `
   background-color:green;
 `;
 
+const Quadrado = styled.View `
+  width: 50px;
+  height: 50px;
+  background-color:${props=>props.cor};
+`;
+
 export default () =>{
 
   return(
 
-      //O SafeAreaView usa somente a área segura da tela, recomendado para o caso do iphone
+      //O SafeAreaView usa somente a área segura da tela, r
       <Page>
-        <Text>Texto 1</Text>
         <Text>Texto 2</Text>
         <Texto cor="red">Texto 3</Texto>
         <Texto cor="yellow">Texto 4</Texto>
+
+        <Quadrado cor="red"></Quadrado>
+        <Quadrado cor="blue"></Quadrado>
+        <Quadrado cor="green"></Quadrado>
+
       </Page>
   );
 }
