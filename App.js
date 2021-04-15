@@ -13,9 +13,14 @@ import styled from 'styled-components/native';
 
 const Page = styled.SafeAreaView `
   flex:1;
-  flex-direction:column;
-  justify-content: space-around;
-  align-items: center;
+`;
+
+const Header = styled.View `
+  background-color:#EEEEEE;
+  flex-direction:row;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 200px;
 `;
 
 /* opcoes para o flex-direction
@@ -55,12 +60,25 @@ export default () =>{
         <Quadrado flex={1} cor="red"></Quadrado>
         <Quadrado flex={2} cor="blue"></Quadrado>
         <Quadrado flex={1} cor="green"></Quadrado>
+
+        <Quadrado style={{alignSelf:'flex-end'}} cor="green"></Quadrado>
       */
 
       <Page>
-        <Quadrado cor="red"></Quadrado>
-        <Quadrado cor="blue"></Quadrado>
-        <Quadrado cor="green"></Quadrado>
+        <Header> 
+          <Quadrado cor="red"></Quadrado>
+          <Quadrado cor="blue"></Quadrado>
+          <Quadrado cor="green"></Quadrado>
+          <Quadrado cor="pink"></Quadrado>
+          <Quadrado cor="red"></Quadrado>
+          <Quadrado cor="blue"></Quadrado>
+          <Quadrado cor="green"></Quadrado>
+          <Quadrado cor="pink"></Quadrado>
+          <Quadrado cor="red"></Quadrado>
+          <Quadrado cor="blue"></Quadrado>
+          <Quadrado cor="green"></Quadrado>
+          <Quadrado cor="pink"></Quadrado>
+        </Header>
       </Page>
   );
 }
