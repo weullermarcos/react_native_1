@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SafeAreaView, View, Text, StyleSheet } from 'react-native';
+import { SafeAreaView, View, Text, StyleSheet, Button } from 'react-native';
 import styled from 'styled-components/native';
 
 
@@ -50,6 +50,7 @@ const Hello = () =>{
 
   //criando uma const
   const [name, setName ] = useState('Weuller');
+  const [backupName, setBackupName ] = useState('');
 
   //criando uma funcao para mudar o texto
   /*
@@ -58,11 +59,19 @@ const Hello = () =>{
   }
   */
 
+  //Funcao para alterar o texto
+  const handleClick = () => {
+
+    //alert("Clicou no botao");
+    setBackupName(name)
+  }
+
   return(
 
     <View>
       <Input value={name} onChangeText={texto=>setName(texto)} />
-      <Text> Ola {name} </Text>
+      <Button title = "Trocar nome" onPress={handleClick}/>
+      <Text> Ola {backupName} </Text>
     </View>
   );
 }
