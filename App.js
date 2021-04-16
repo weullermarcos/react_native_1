@@ -25,6 +25,14 @@ const Header = styled.View `
   height: 200px;
 `;
 
+//Campo para digitar texto
+const Input = styled.TextInput `
+  height: 40px;
+  width: 200px;
+  border: 1px solid #000000;
+`;
+
+
 /* opcoes para o flex-direction
   flex-direction:row;            -- comeca a linha normalmente - esquerda para a direita
   flex-direction:row-reverse;    -- comeca a linha da direita para a esquerda
@@ -38,14 +46,24 @@ const Texto = styled.Text `
   background-color:green;
 `;
 
-const Hello = (props) =>{ 
+const Hello = () =>{ 
 
   //criando uma const
   const [name, setName ] = useState('Weuller');
 
+  //criando uma funcao para mudar o texto
+  /*
+  function mudarTexto(texto){
+    setName(texto);
+  }
+  */
+
   return(
 
-    <Text> Nome: {name} </Text>
+    <View>
+      <Input value={name} onChangeText={texto=>setName(texto)} />
+      <Text> Ola {name} </Text>
+    </View>
   );
 }
 
@@ -93,9 +111,7 @@ export default () =>{
       */
 
       <Page>
-        
         <Hello/>
-        <Hello frase="Seja bem-vindo 2"/>
       </Page>
   );
 }
