@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { SafeAreaView, View, Text, StyleSheet, Button } from 'react-native';
 import styled from 'styled-components/native';
 
@@ -158,11 +158,17 @@ export default () =>{
     if(nBill){
       setTip(nBill * (pct/100));
     }
-    else{
-      alert('Digite um valor');
-    }
-
   }
+
+  //e uma especie de um listener, eu informo quais const ou objetos ele deve monitorar
+  //e quando ocorrer algo ele executa determinado comando
+  //se nenhum parametro for informado no [] ele sõ executara uma unica vez ao criar o componente
+  useEffect(()=>{
+
+    //alert("Executou");
+    calc();
+
+  }, [pct]);
 
   return(
 
@@ -208,7 +214,6 @@ export default () =>{
           value={bill}
           onChangeText={n=>setBill(n)}
         />
-
         
         <PctArea>
           <PctItem title="5%"  onPress={()=>setPct(5)}/>
