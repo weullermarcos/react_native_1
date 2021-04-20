@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Platform } from 'react-native'; //configuracoes de cada plataforma Android - IOS
+import { Platform, Dimensions, Alert } from 'react-native'; //configuracoes de cada plataforma Android - IOS
 import { SafeAreaView, View, Text, StyleSheet, Button } from 'react-native';
 import styled from 'styled-components/native';
+import Header from './src/components/Header';
 
 
 /* opcoes para o justify-content e align-items
@@ -17,7 +18,7 @@ const Page = styled.SafeAreaView `
   align-items: center;
 `;
 
-const Header = styled.View `
+const HeaderLocal = styled.View `
   background-color:#EEEEEE;
   flex-direction:row;
   justify-content: center;
@@ -154,7 +155,6 @@ const KeyboardArea = styled.KeyboardAvoidingView `
 
 export default () =>{
 
-  
   const [bill, setBill ] = useState(''); //valor da conta
   const [tip, setTip ] = useState(0); //valor da gorgeta
   const [pct, setPct ] = useState(10); //valor padrao da porcentagem
@@ -182,7 +182,35 @@ export default () =>{
   //vamos usar para identificar a plataforma Android - IOS
   useEffect(()=>{
 
+    //let largura = Dimensions.get('window').width; //pega a largura
+    //let altura = Dimensions.get('window').height; //pega a altura
+    //var {height, width} = Dimensions.get('window'); //pega a altura
+
+    //alert("Largura: " + width + " - Altura: " + height); //exibe largura e altura
     //alert("SO: " + Platform.OS + " - versao: " + Platform.Version); //exibe qual e a plataforma e versao
+  
+    /*
+    Alert.alert(
+      "Titulo",
+      "Mensagem",
+      [
+        {
+          text: "Botao 1",
+          onPress: () => console.log("Acao 1")
+        },
+        {
+          text: "Botao 2",
+          onPress: () => console.log("Acao 2"),
+          style: "cancel"
+        },
+        { 
+          text: "Botao 3", 
+          onPress: () => console.log("Acao 3") 
+        }
+      ]
+    );
+    */
+
   }, []);
 
   return(
@@ -221,6 +249,8 @@ export default () =>{
 
       <Page>
         
+        <Header/>
+
         <KeyboardArea behavior={Platform.OS == 'ios' ? 'padding' : null}>
 
           <HeaderText>Calculadora de Gorjeta</HeaderText>
