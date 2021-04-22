@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Platform, Dimensions, Alert } from 'react-native'; //configuracoes de cada plataforma Android - IOS
-import { SafeAreaView, View, Text, StyleSheet, Button } from 'react-native';
+import { Alert } from 'react-native'; //configuracoes de cada plataforma Android - IOS
+import { SafeAreaView, Text, Button, Image } from 'react-native';
 import styled from 'styled-components/native';
 import Header from './src/components/Header';
 import Calculadora from './src/components/Calculadora';
 import TrocaTexto from './src/components/TrocaTexto';
+import CarregaImagem from './src/components/CarregaImagem';
 
 
 /* opcoes para o justify-content e align-items
@@ -26,6 +27,7 @@ import TrocaTexto from './src/components/TrocaTexto';
 const Page = styled.SafeAreaView `
   flex:1;
   align-items: center;
+  justify-content: center;
 `;
 
 export default () =>{
@@ -64,15 +66,24 @@ export default () =>{
 
   }, []);
 
+
   return(
 
-      <Page>
-        
-        <Header/>
-        {/* <Calculadora/> */}
-        <TrocaTexto/>
-        
-      </Page>
+
+    <Page>
+      
+      {/* <Header/> */}
+      {/* <Calculadora/> */}
+      {/* <TrocaTexto/> */}
+      <CarregaImagem/>
+
+      <Image source={require('./src/images/rba.jpg')} 
+             style={{width: 200, height: 300}}
+             resizeMode="stretch"
+      />
+      
+      
+    </Page>
   );
 }
 
