@@ -26,7 +26,7 @@ export default()=>{
                     onError={(e)=> alert(e.nativeEvent.error)}
             />
 
-<           Text> {status} </Text> 
+        <Text> {status} </Text> 
 
         </ LocalView>
 

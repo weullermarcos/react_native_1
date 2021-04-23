@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Alert } from 'react-native'; //configuracoes de cada plataforma Android - IOS
-import { SafeAreaView, Text, Button, Image } from 'react-native';
+import { SafeAreaView, Image } from 'react-native';
+import { Container, Header, Content, Spinner } from 'native-base';
+import {Button, Text} from 'native-base';
 import styled from 'styled-components/native';
-import Header from './src/components/Header';
-import Calculadora from './src/components/Calculadora';
-import TrocaTexto from './src/components/TrocaTexto';
-import CarregaImagem from './src/components/CarregaImagem';
+import NativeBaseHeader from './src/components/NativeBaseHeader';
+// import Header from './src/components/Header';
+// import Calculadora from './src/components/Calculadora';
+// import TrocaTexto from './src/components/TrocaTexto';
+// import CarregaImagem from './src/components/CarregaImagem';
 
 
 /* opcoes para o justify-content e align-items
@@ -26,8 +29,6 @@ import CarregaImagem from './src/components/CarregaImagem';
 //O SafeAreaView evita de pegar areas da tela que nao podem ser usadas
 const Page = styled.SafeAreaView `
   flex:1;
-  align-items: center;
-  justify-content: center;
 `;
 
 export default () =>{
@@ -75,12 +76,27 @@ export default () =>{
       {/* <Header/> */}
       {/* <Calculadora/> */}
       {/* <TrocaTexto/> */}
-      <CarregaImagem/>
+      {/* <CarregaImagem/> */}
 
-      <Image source={require('./src/images/rba.jpg')} 
+      {/* <Image source={require('./src/images/rba.jpg')} 
              style={{width: 200, height: 300}}
              resizeMode="stretch"
-      />
+      /> */}
+
+      <NativeBaseHeader/>
+
+      <Button rounded danger> 
+        <Text> Texto do Botao </Text>
+      </Button>
+
+      <Container>
+        <Content>
+          <Spinner />
+          <Spinner color='red' />
+          <Spinner color='green' />
+          <Spinner color='blue' />
+        </Content>
+      </Container>
       
       
     </Page>
