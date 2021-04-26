@@ -6,6 +6,7 @@ import {Button, Text} from 'native-base';
 import styled from 'styled-components/native';
 import NativeBaseHeader from './src/components/NativeBaseHeader';
 import lista from './src/lista';
+import ListaItem from './src/components/ListaItem';
 // import Header from './src/components/Header';
 // import Calculadora from './src/components/Calculadora';
 // import TrocaTexto from './src/components/TrocaTexto';
@@ -51,6 +52,10 @@ const Scroll = styled.ScrollView `
   background-color: #FF0000;
   width:100%;
   max-height:500px;
+`;
+
+const Listagem = styled.FlatList `
+  flex:1;
 `;
 
 const ItemText = styled.Text `
@@ -99,6 +104,13 @@ export default () =>{
 
 
     <Page>
+
+
+      <Listagem data={lista} 
+                renderItem={({item})=> <ListaItem data={item}/>}
+                keyEstractor={(item)=>item.id}
+      />
+
       
       {/* <Header/> */}
       {/* <Calculadora/> */}
@@ -112,8 +124,7 @@ export default () =>{
 
       {/* <NativeBaseHeader/> */}
       
-      <Scroll>
-
+      {/* <Scroll>
         {lista.map((item, index)=> {
 
           return (
@@ -125,9 +136,8 @@ export default () =>{
             </Item>
           );
         })}
+      </Scroll> */}
 
-      </Scroll>
-      
     </Page>
   );
 }

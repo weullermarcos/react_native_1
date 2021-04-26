@@ -14,6 +14,8 @@
     "react": "17.0.1",
     "react-native": "0.64.0",
     "styled-components": "^5.2.3",
+    "uuid": "^8.3.2",
+    "uuidv4": "^6.2.7",
     "yarn": "^1.22.10"
   },
   "devDependencies": {
