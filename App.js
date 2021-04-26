@@ -7,6 +7,7 @@ import styled from 'styled-components/native';
 import NativeBaseHeader from './src/components/NativeBaseHeader';
 import lista from './src/lista';
 import ListaItem from './src/components/ListaItem';
+import AddItemArea from './src/components/AddItemArea';
 // import Header from './src/components/Header';
 // import Calculadora from './src/components/Calculadora';
 // import TrocaTexto from './src/components/TrocaTexto';
@@ -34,32 +35,7 @@ const Page = styled.SafeAreaView `
   background-color: #00FF00;
 `;
 
-const Item = styled.TouchableOpacity `
-  padding:10px;
-  background-color: #CCCCCC;
-  flex-direction: row;
-`;
-
-const ItemCheck = styled.View `
-  width:20px;
-  height: 20px;
-  border-radius:10px;
-  border:5px solid #FFFFFF;
-`;
-
-const Scroll = styled.ScrollView `
-  flex:1;
-  background-color: #FF0000;
-  width:100%;
-  max-height:500px;
-`;
-
 const Listagem = styled.FlatList `
-  flex:1;
-`;
-
-const ItemText = styled.Text `
-  font-size:15px;
   flex:1;
 `;
 
@@ -99,16 +75,18 @@ export default () =>{
 
   }, []);
 
+  const [items, setItems] = useState(lista);
 
   return(
 
 
     <Page>
 
+      <AddItemArea items={items} setItems={setItems}/>
 
-      <Listagem data={lista} 
+      <Listagem data={items} 
                 renderItem={({item})=> <ListaItem data={item}/>}
-                keyEstractor={(item)=>item.id}
+                keyExtractor={(item)=>item.id}
       />
 
       
@@ -123,20 +101,6 @@ export default () =>{
       /> */}
 
       {/* <NativeBaseHeader/> */}
-      
-      {/* <Scroll>
-        {lista.map((item, index)=> {
-
-          return (
-            <Item key={index} activeOpacity={0.7}> 
-              <>
-                <ItemText> {item.task} </ItemText>
-                <ItemCheck></ItemCheck>
-              </>
-            </Item>
-          );
-        })}
-      </Scroll> */}
 
     </Page>
   );
