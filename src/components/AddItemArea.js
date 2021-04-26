@@ -22,24 +22,16 @@ export default(props) => {
 
     const handleSubmit = () => {
         // alert(item);
-
-        //verifica se o item nao foi enviado em branco
-        if(item.trim() != ''){
-
-            let items = [...props.items];//clonando a lista de itens para adicionar o novo item
-
-            //cria um novo item e adiciona ao array
-            items.push({
-                id: 50, //criar uma forma de incrementar o id
-                task:item.trim(),
-                done:false
-            });
-
-            //seta o novo array via props
-            props.setItems(items);
-        }
         
-        setItem('');
+        //verifica se o item nao esta vazio 
+        if(item.trim != ''){
+            
+            // executo a props criada no arquivo principal
+            props.onAdd(item.trim());
+            
+            // limpo o item
+            setItem('');
+        }
 
     }
 

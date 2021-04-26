@@ -77,12 +77,32 @@ export default () =>{
 
   const [items, setItems] = useState(lista);
 
+  // criando a funcao addNewItem
+  const addNewItem = (txt) => {
+    
+    // alert('executou');
+
+    // clonando items para adicionar o novo elemento
+    let newItems = [...items];
+
+    // criando e adicionando um novo item ao array
+    newItems.push({
+      id:50, //achar uma forma de incrementar o id - uuid nao esta funcionando aqui
+      task:txt,
+      done:false
+    });
+
+    // atualizando a prop
+    setItems(newItems);
+
+  }
+
   return(
 
 
     <Page>
 
-      <AddItemArea items={items} setItems={setItems}/>
+      <AddItemArea onAdd={addNewItem}/>
 
       <Listagem data={items} 
                 renderItem={({item})=> <ListaItem data={item}/>}
