@@ -5,6 +5,7 @@ import { Container, Header, Content, Spinner } from 'native-base';
 import {Button, Text} from 'native-base';
 import styled from 'styled-components/native';
 import NativeBaseHeader from './src/components/NativeBaseHeader';
+import lista from './src/lista';
 // import Header from './src/components/Header';
 // import Calculadora from './src/components/Calculadora';
 // import TrocaTexto from './src/components/TrocaTexto';
@@ -29,7 +30,24 @@ import NativeBaseHeader from './src/components/NativeBaseHeader';
 //O SafeAreaView evita de pegar areas da tela que nao podem ser usadas
 const Page = styled.SafeAreaView `
   flex:1;
+  background-color: #00FF00;
 `;
+
+const Item = styled.View `
+  padding:10px;
+`;
+
+const Scroll = styled.ScrollView `
+  flex:1;
+  background-color: #FF0000;
+  width:100%;
+  max-height:300px;
+`;
+
+const ItemText = styled.Text `
+  font-size:15px;
+`;
+
 
 export default () =>{
 
@@ -83,21 +101,20 @@ export default () =>{
              resizeMode="stretch"
       /> */}
 
-      <NativeBaseHeader/>
-
-      <Button rounded danger> 
-        <Text> Texto do Botao </Text>
-      </Button>
-
-      <Container>
-        <Content>
-          <Spinner />
-          <Spinner color='red' />
-          <Spinner color='green' />
-          <Spinner color='blue' />
-        </Content>
-      </Container>
+      {/* <NativeBaseHeader/> */}
       
+      <Scroll>
+
+        {lista.map((item, index)=> {
+
+          return (
+            <Item key={index}> 
+              <ItemText> {item.task} </ItemText>
+            </Item>
+          );
+        })}
+
+      </Scroll>
       
     </Page>
   );
