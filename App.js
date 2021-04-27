@@ -4,10 +4,12 @@ import { SafeAreaView, Image } from 'react-native';
 import { Container, Header, Content, Spinner } from 'native-base';
 import {Button, Text} from 'native-base';
 import styled from 'styled-components/native';
+import {SwipeListView} from 'react-native-swipe-list-view';
 import NativeBaseHeader from './src/components/NativeBaseHeader';
 import lista from './src/lista';
 import ListaItem from './src/components/ListaItem';
 import AddItemArea from './src/components/AddItemArea';
+import ListaItemSwipe from './src/components/ListaItemSwipe';
 // import Header from './src/components/Header';
 // import Calculadora from './src/components/Calculadora';
 // import TrocaTexto from './src/components/TrocaTexto';
@@ -118,8 +120,11 @@ export default () =>{
 
       <AddItemArea onAdd={addNewItem}/>
 
-      <Listagem data={items} 
+      <SwipeListView data={items} 
                 renderItem={({item, index}) => <ListaItem onPress={()=>toggleDone(index)} data={item}/>}
+                renderHiddenItem={({item, index})=><ListaItemSwipe/>}
+                leftOpenValue={50}
+                
                 keyExtractor={(item)=>item.id}
       />
 

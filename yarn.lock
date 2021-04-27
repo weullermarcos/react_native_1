@@ -5621,6 +5621,11 @@ react-native-iphone-x-helper@^1.0.3:
   resolved "https://registry.yarnpkg.com/react-native-iphone-x-helper/-/react-native-iphone-x-helper-1.3.1.tgz#20c603e9a0e765fd6f97396638bdeb0e5a60b010"
   integrity sha512-HOf0jzRnq2/aFUcdCJ9w9JGzN3gdEg0zFE4FyYlp4jtidqU03D5X7ZegGKfT1EWteR0gPBGp9ye5T5FvSWi9Yg==
 
+react-native-swipe-list-view@^3.2.7:
+  version "3.2.7"
+  resolved "https://registry.yarnpkg.com/react-native-swipe-list-view/-/react-native-swipe-list-view-3.2.7.tgz#ab906bfaa96ece9adc3e5469cb790fe5f7e9d973"
+  integrity sha512-lyTspC/vBco4yRFGou6X8m/ce1eGtSCxGAxlEzpZDin97kwOQTeV+PuQxoGFiCs9wgLQCoFHvRmOuIreSn8fkQ==
+
 react-native-vector-icons@^7.0.0:
   version "7.1.0"
   resolved "https://registry.yarnpkg.com/react-native-vector-icons/-/react-native-vector-icons-7.1.0.tgz#145487d617b2a81d395d2cf64e6e065fcab3a454"
