@@ -34,7 +34,6 @@ import ListaItemSwipe from './src/components/ListaItemSwipe';
 //O SafeAreaView evita de pegar areas da tela que nao podem ser usadas
 const Page = styled.SafeAreaView `
   flex:1;
-  background-color: #00FF00;
 `;
 
 const Listagem = styled.FlatList `
@@ -102,7 +101,6 @@ export default () =>{
     const toggleDone = (index) => {
 
       // alert(index);
-
       // clona a lista de items
       let newItems = [...items];
 
@@ -110,7 +108,20 @@ export default () =>{
       newItems[index].done = !newItems[index].done;
 
       setItems(newItems);
+    }
 
+    // criando a funcao deleteItem
+    const deleteItem = (index) => {
+      // alert(index);
+
+      // clona a lista de itens
+      let newItems = [...items];
+
+      // filtra os itens removendo o que eu nao quero - exclui o item
+      newItems = newItems.filter((it, i)=>i!=index);
+
+      // atualiza a lista de items
+      setItems(newItems);
     }
 
   return(
@@ -122,9 +133,9 @@ export default () =>{
 
       <SwipeListView data={items} 
                 renderItem={({item, index}) => <ListaItem onPress={()=>toggleDone(index)} data={item}/>}
-                renderHiddenItem={({item, index})=><ListaItemSwipe/>}
+                renderHiddenItem={({item, index})=><ListaItemSwipe onDelete={()=>deleteItem(index)}/>}
                 leftOpenValue={50}
-                
+                disableLeftSwipe={true}
                 keyExtractor={(item)=>item.id}
       />
 
