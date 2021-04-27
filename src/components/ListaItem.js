@@ -19,6 +19,7 @@ const ItemCheck = styled.View `
   height: 20px;
   border-radius:10px;
   border:5px solid #CCCCCC;
+  background-color: ${props=>props.done ? '#CCCCCC' : 'transparent'};
 `;
 
 const ItemText = styled.Text `
@@ -30,10 +31,10 @@ export default(props)=>{
 
     return(
 
-        <Item onPress={()=>{}} activeOpacity={0.7}> 
+        <Item onPress={props.onPress} activeOpacity={0.7}> 
             <>
                 <ItemText> {props.data.task} </ItemText>
-                <ItemCheck></ItemCheck>
+                <ItemCheck done={props.data.done}></ItemCheck>
             </>
         </Item>
 

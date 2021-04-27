@@ -94,8 +94,22 @@ export default () =>{
 
     // atualizando a prop
     setItems(newItems);
-
   }
+
+    // criando a funcao toggleDone
+    const toggleDone = (index) => {
+
+      // alert(index);
+
+      // clona a lista de items
+      let newItems = [...items];
+
+      // recupera o item pelo index e inverte o seu done
+      newItems[index].done = !newItems[index].done;
+
+      setItems(newItems);
+
+    }
 
   return(
 
@@ -105,7 +119,7 @@ export default () =>{
       <AddItemArea onAdd={addNewItem}/>
 
       <Listagem data={items} 
-                renderItem={({item})=> <ListaItem data={item}/>}
+                renderItem={({item, index}) => <ListaItem onPress={()=>toggleDone(index)} data={item}/>}
                 keyExtractor={(item)=>item.id}
       />
 
